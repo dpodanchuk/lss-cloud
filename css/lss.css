@@ -1,0 +1,43 @@
+#highlighterContainer {
+    position: absolute;
+    left: 0
+    top: 0;
+    border: 1px dashed #ff0000;
+    width: 100%;
+    height: 100%;
+    cursor: text
+}
+#inputContainer {
+    position: absolute;
+    left: 0;
+    top: 0;
+    border: 1px solid #000000
+}
+/* now lets make sure the highlit div and the textarea will superpose;
+  by applying the same font size and stuffs.
+  the highlighter must have a white text so it will be invisible
+*/
+#highlighter {
+    padding: 7px;
+    color: #eeeeee;
+    background-color: #ffffff;
+    margin: 0px;
+    font-size: 11px;
+    font-family: "lucida grande",tahoma,verdana,arial,sans-serif;
+}
+/* the textarea must have a transparent background so we can see the highlight div behind it */
+textarea {
+    background-color: transparent;
+    padding: 5px;
+    margin: 0px;
+    font-size: 11px;
+    width: 100%;
+    height: 100%;
+    font-family: "lucida grande",tahoma,verdana,arial,sans-serif;
+}
+
+.boxsizingBorder {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
