@@ -33,12 +33,17 @@
             };
             controls[it].disabled = false;
             controls[it].classApplier = rangy.createClassApplier(`${it}`, {
-                tagNames: ['div','span']
+                tagNames: ['span']
             });
             controls[it].ontouchstart =
-                controls[it].onmousedown =
-                (e) => {
-                    e.target.classApplier && e.target.classApplier.toggleSelection();
+                controls[it].onmousedown = (e) => {
+                    if(e.target.classApplier){
+                        e.target.classApplier.toggleSelection();
+                    } else {
+                        
+                    }
+                    document.body.className += "o05";
+                    
                     return false;
                 };
         });

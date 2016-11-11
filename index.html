@@ -1,50 +1,98 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
-<html>
+<html lang="en">
   <head>
     <title>LSS Editor Prototype v0.0.1</title>
-    <meta name="generator" content="content" />
-    <link rel="stylesheet" href="css/lss.css" type="text/css" media="screen" />
-    <!-- Load Rangy -->
-    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/lodash.js/4.16.6/lodash.min.js"></script>
-    <script type="text/javascript" src="js/vendor/log4javascript.js"></script>
-    <script type="text/javascript" src="js/vendor/jshashtable.js"></script>
-    <script type="text/javascript" src="js/vendor/rangy/core/core.js"></script>
-    <script type="text/javascript" src="js/vendor/rangy/core/dom.js"></script>
-    <script type="text/javascript" src="js/vendor/rangy/core/domrange.js"></script>
-    <script type="text/javascript" src="js/vendor/rangy/core/wrappedrange.js"></script>
-    <script type="text/javascript" src="js/vendor/rangy/core/wrappedselection.js"></script>
-    <script type="text/javascript" src="js/vendor/rangy/modules/rangy-util.js"></script>
-    <script type="text/javascript" src="js/vendor/rangy/modules/rangy-textrange.js"></script>
-    <script type="text/javascript" src="js/vendor/rangy/modules/rangy-serializer.js"></script>
-    <script type="text/javascript" src="js/vendor/rangy/modules/rangy-selectionsaverestore.js"></script>
-    <script type="text/javascript" src="js/vendor/rangy/modules/rangy-classapplier.js"></script>
-    <script type="text/javascript" src="js/vendor/rangy/modules/rangy-highlighter.js"></script>
-    
-    <!-- <script type="text/javascript" src="js/vendor/rangy/modules/inactive/rangy-commands.js"></script> -->
-    <!-- <script type="text/javascript" src="js/vendor/rangy/modules/inactive/rangy-events.js"></script> -->
-    <!-- <script type="text/javascript" src="js/vendor/rangy/modules/inactive/rangy-position.js"></script> -->
-    <script type="text/javascript" src="js/vendor/rangy/modules/inactive/rangy-textcommands.js"></script>
-    
-    <!-- <script type="text/javascript" src="js/vendor/rangy/modules/inactive/commands/rangy-applyclass.js"></script> -->
-    
-    <script type="text/javascript" src="js/lss.js"></script>
-    <!-- The javascript containing the plugin and the code to init the plugin -->
-  </head>
-  <body>
-    <div id="container">
-Податковий кодекс України регулює відносини, що виникають у сфері справляння податків і зборів, зокрема, визначає вичерпний перелік податків та зборів, що справляються в Україні, та порядок їх адміністрування, платників податків та зборів, їх права та обов'язки, компетенцію контролюючих органів, повноваження і обов'язки їх посадових осіб під час здійснення податкового контролю, а також відповідальність за порушення податкового законодавства.    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="generator" content="content" />
+      <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" type="text/css" media="screen" />
+      <link rel="stylesheet" href="css/lss.css" type="text/css" media="screen" />
+      
+      <!-- Load Rangy -->
+      <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/lodash.js/4.16.6/lodash.min.js"></script>
+      <script
+         src="https://code.jquery.com/jquery-3.1.1.min.js"
+         integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+         crossorigin="anonymous"></script>
+      <script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+      <script type="text/javascript" src="js/vendor/log4javascript.js"></script>
+      <script type="text/javascript" src="js/vendor/jshashtable.js"></script>
+      <script type="text/javascript" src="js/vendor/rangy/core/core.js"></script>
+      <script type="text/javascript" src="js/vendor/rangy/core/dom.js"></script>
+      <script type="text/javascript" src="js/vendor/rangy/core/domrange.js"></script>
+      <script type="text/javascript" src="js/vendor/rangy/core/wrappedrange.js"></script>
+      <script type="text/javascript" src="js/vendor/rangy/core/wrappedselection.js"></script>
+      <script type="text/javascript" src="js/vendor/rangy/modules/rangy-util.js"></script>
+      <script type="text/javascript" src="js/vendor/rangy/modules/rangy-textrange.js"></script>
+      <script type="text/javascript" src="js/vendor/rangy/modules/rangy-serializer.js"></script>
+      <script type="text/javascript" src="js/vendor/rangy/modules/rangy-selectionsaverestore.js"></script>
+      <script type="text/javascript" src="js/vendor/rangy/modules/rangy-classapplier.js"></script>
+      <script type="text/javascript" src="js/vendor/rangy/modules/rangy-highlighter.js"></script>
+      
+      <!-- <script type="text/javascript" src="js/vendor/rangy/modules/inactive/rangy-commands.js"></script> -->
+      <!-- <script type="text/javascript" src="js/vendor/rangy/modules/inactive/rangy-events.js"></script> -->
+      <!-- <script type="text/javascript" src="js/vendor/rangy/modules/inactive/rangy-position.js"></script> -->
+      <script type="text/javascript" src="js/vendor/rangy/modules/inactive/rangy-textcommands.js"></script>
+      
+      <!-- <script type="text/javascript" src="js/vendor/rangy/modules/inactive/commands/rangy-applyclass.js"></script> -->
+      
+      <script type="text/javascript" src="js/lss.js"></script>
+      <!-- The javascript containing the plugin and the code to init the plugin -->
+      <style>
+        OL { counter-reset: item }
+        LI { display: block }
+        LI:before { content: counters(item, ".") " "; counter-increment: item }
+      </style>
+    </head>
+    <body>
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-xs-6">
+          <p>
+            <a class="btn" id="atom" role="button">Atom</a>
+            <a class="btn-sm mark1"  id="mark1" role="button">Condition</a>
+            <a class="btn-sm mark2"  id="mark2" role="button">Node 1</a>
+            <a class="btn-sm mark3"  id="mark3" role="button">Subnode 1</a>
+            <a class="btn-sm mark4"  id="mark4" role="button">Node/subnode attribute 1</a>
+            <a class="btn-sm mark5"  id="mark5" role="button">Action</a>
+            <a class="btn-sm mark6"  id="mark6" role="button">Action attribute</a>
+            <a class="btn-sm mark7"  id="mark7" role="button">Action subject</a>
+            <a class="btn-sm mark8"  id="mark8" role="button">Action subject attribute</a>
+            <a class="btn-sm mark9"  id="mark9" role="button">Node 2</a>
+            <a class="btn-sm mark10"  id="mark10" role="button">Subnode 2</a>
+            <a class="btn-sm mark11"  id="mark11" role="button">Node/subnode 2 attribute</a>
+          </p>
+          
+          <div id="container">
+            <ol>
+              <li>
+                <h2>Стаття 1. Сфера дії Податкового кодексу України</h2>
+                <ol>
+                  <li>Податковий кодекс України регулює відносини, що виникають у сфері справляння податків і зборів, зокрема, визначає вичерпний перелік податків та зборів, що справляються в Україні, та порядок їх адміністрування, платників податків та зборів, їх права та обов'язки, компетенцію контролюючих органів, повноваження і обов'язки їх посадових осіб під час здійснення податкового контролю, а також відповідальність за порушення податкового законодавства.
+                    Цим Кодексом визначаються функції та правові основи діяльності контролюючих органів, визначених пунктом 41.1 статті 41 цього Кодексу.
+                    Державна податкова справа - сфера діяльності контролюючих органів, передбачена цим Кодексом та іншими актами законодавства України, спрямована на формування і реалізацію державної податкової політики в частині адміністрування податків, зборів, платежів.</li>
+                  <li>Правила оподаткування товарів, що переміщуються через митний кордон України, визначаються цим Кодексом, крім правил оподаткування товарів митом, які встановлюються Митним кодексом України та іншими законами з питань митної справи.</li>
+                  <li>Цей Кодекс не регулює питання погашення податкових зобов'язань або стягнення податкового боргу з осіб, на яких поширюються судові процедури, визначені Законом України "Про відновлення платоспроможності боржника або визнання його банкрутом", з банків, на які поширюються норми Закону України "Про систему гарантування вкладів фізичних осіб", та погашення зобов'язань зі сплати єдиного внеску на загальнообов'язкове державне соціальне страхування, зборів на обов'язкове державне пенсійне страхування з окремих видів господарських операцій.</li>
+                  <li>Встановлення і скасування зборів на обов'язкове державне пенсійне страхування з окремих видів господарських операцій, їх розмірів та механізмів справляння здійснюються відповідно до Закону України "Про збір на обов'язкове державне пенсійне страхування".</li>
+                </ol>
+              </li>
+              <li>
+                <h2>Стаття 2. Внесення змін до Податкового кодексу України</h2>
+                <ol>          
+                  <li>Зміна положень цього Кодексу може здійснюватися виключно шляхом внесення змін до цього Кодексу.</li>
+                </ol>
+              </li>
+              <li>
+                <h2>Стаття 3. Податкове законодавство України</h2>
+                <ol>
+                  <li>Податкове законодавство України складається з Конституції України; цього Кодексу; Митного кодексу України та інших законів з питань митної справи у частині регулювання правовідносин, що виникають у зв'язку з оподаткуванням митом операцій з переміщення товарів через митний кордон України (далі - законами з питань митної справи); чинних міжнародних договорів, згода на обов'язковість яких надана Верховною Радою України і якими регулюються питання оподаткування; нормативно-правових актів, прийнятих на підставі та на виконання цього Кодексу та законів з питань митної справи; рішень Верховної Ради Автономної Республіки Крим, органів місцевого самоврядування з питань місцевих податків та зборів, прийнятих за правилами, встановленими цим Кодексом.</li>
+                  <li>Якщо міжнародним договором, згода на обов'язковість якого надана Верховною Радою України, встановлено інші правила, ніж ті, що передбачені цим Кодексом, застосовуються правила міжнародного договору.</li>
+                </ol>
+              </li>
+            </li>
+          </ol>
+        </div>
+        </div>
+      </div>
     </div>
-    <button id="atom">Atom</button>
-    <button id="mark1">Mark1</button>
-    <button id="mark2">Mark2</button>
-    <button id="mark3">Mark3</button>
-    <button id="mark4">Mark4</button>
-    <button id="mark5">Mark5</button>
-    <button id="mark6">Mark6</button>
-    <button id="mark7">Mark7</button>
-    <button id="mark8">Mark8</button>
-    <button id="mark9">Mark9</button>
-    <button id="mark10">Mark10</button>
-
   </body>
 </html>  
