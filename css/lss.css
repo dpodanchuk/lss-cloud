@@ -41,3 +41,34 @@ textarea {
     -moz-box-sizing: border-box;
     box-sizing: border-box;
 }
+
+.mark1 {
+    background-color: #FFEBCD;
+}
+.mark2 {
+    background-color: #0000FF
+}
+.mark3 {
+    background-color: #8A2BE2;
+}
+.mark4 {
+    background-color: #A52A2A;
+}
+.mark5 {
+    background-color: #DEB887;
+}
+.mark6 {
+    background-color: #5F9EA0;
+}
+.mark7 {
+    background-color: #7FFF00;
+}
+.mark8 {
+    background-color: #D2691E;
+}
+.mark9 {
+    background-color: #FF7F50;
+}
+.mark10 {
+    background-color: #6495ED;
+}

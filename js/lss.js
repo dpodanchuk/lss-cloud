@@ -1,7 +1,7 @@
 /**
  @author Arsen A. Gutsal
  Inspired by: http://codepen.io/agutsal/pen/QGjeVa
-*/
+ */
 $(function() {
     // let's init the plugin, that we called "highlight".
     // We will highlight the words "hello" and "world",
@@ -12,7 +12,7 @@ $(function() {
 });
 
 // the plugin that would do the trick
-(function($) {
+(function($) {    
     $.fn.extend({
         lssEditor: function() {
             // the main class
@@ -70,17 +70,40 @@ $(function() {
                     this.highlighterContainer.bind('click', function() {
                         scope.textarea.focus();
                     });
-                    this.textarea.bind('keyup', function() {
+                    this.textarea.bind('keyup', function(e) {
+                        const KEYS = [
+                            90,
+                            88,
+                            67,
+                            86,
+                            66,
+                            78,
+                            77,
+                            188,
+                            190,
+                            191                            
+                        ];
+                        var textbox = $(this);
+                        var sel = textbox.getSelection();
                         // when we type in the textarea,
                         // we want the text to be processed and re-injected into the div behind it.
-                        scope.applyText($(this).val());
+                        if(e.altKey){
+                            console.log(sel);
+                            if(!!sel.length){
+                                // something selected
+                                console.log(KEYS.indexOf(e.originalEvent.keyCode));
+                                scope.applyText($(this).val(), sel.start, sel.end, KEYS.indexOf(e.originalEvent.keyCode));
+                            }
+                            //$(this).collapseSelection(true);
+                            $(this).dblclick();
+                        };
                     });
                 } catch (err) {
                     this.error(err);
                 }
                 return true;
             };
-            pluginClass.prototype.applyText = function(text) {
+            pluginClass.prototype.applyText = function(text, start, end, idx) {
                 try {
                     var scope = this;
 
@@ -89,10 +112,13 @@ $(function() {
                     text = this.replaceAll(text, '\n', '<br/>');
                     text = this.replaceAll(text, '  ', '&nbsp;&nbsp;');
 
-                    // replace the words by a highlighted version of the words
-                    for (var i = 0; i < this.options.words.length; i++) {
-                        text = this.replaceAll(text, this.options.words[i], '<span style="background-color: #D8DFEA;">' + this.options.words[i] + '</span>');
-                    }
+                    // // replace the words by a highlighted version of the words
+                    // for (var i = 0; i < this.options.words.length; i++) {
+                    //     text = this.replaceAll(text, this.options.words[i], '<span class="mark1">' + this.options.words[i] + '</span>');
+                    // }
+
+                    text = text.substring(0, start) + $('<span/>').addClass(`mark${idx}`).text(text.substring(start, end)).get(0).outerHTML + text.substring(end);
+                    
 
                     // re-inject the processed text into the div
                     this.highlighter.html(text);
