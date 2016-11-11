@@ -42,6 +42,10 @@ textarea {
     box-sizing: border-box;
 }
 
+*.atom {
+    background-color: #EEEEEE;
+}
+
 .mark1 {
     background-color: #FFEBCD;
 }
