@@ -39,10 +39,14 @@
                 controls[it].onmousedown = (e) => {
                     if(e.target.classApplier){
                         e.target.classApplier.toggleSelection();
-                    } else {
-                        
                     }
-                    document.body.className += "o05";
+
+                    var parts = document.querySelectorAll(".atom span[class^=mark]")
+                    , tree = document.querySelector('.tree');
+                    tree.innerHTML = '';
+                    _.each(parts, (it, idx) => {
+                        tree.appendChild(it.cloneNode(true));
+                    });
                     
                     return false;
                 };
