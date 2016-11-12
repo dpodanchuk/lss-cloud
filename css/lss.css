@@ -2,6 +2,10 @@ OL { counter-reset: item }
 OL LI { display: block }
 OL LI:before { content: counters(item, ".") " "; counter-increment: item }
 
+.invisible {
+    opacity: 0.0;
+}
+
 *.atom {
     background-color: #EEEEEE;
     opacity: 1;

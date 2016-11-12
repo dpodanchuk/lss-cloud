@@ -45,7 +45,12 @@
                     , tree = document.querySelector('.tree');
                     tree.innerHTML = '';
                     _.each(parts, (it, idx) => {
-                        tree.appendChild(it.cloneNode(true));
+                        const cn = it.cloneNode(true);
+                        cn.className += ' invisible';
+                        tree.appendChild(cn);
+
+                        ramjet.transform(it, cn);
+                        setTimeout(() => {cn.className = cn.className.replace(/invisible/,'');}, 500);
                     });
                     
                     return false;
