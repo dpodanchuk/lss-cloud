@@ -4,9 +4,11 @@
 (function() {
     $(() => {
         $('#document-list').on('change', (e) => {
-            const params = {q:{_id:$(e.target).val()}};
+            const params = $(e.target).val()?{q:{_id:$(e.target).val()}}:{};
             $.get('/api/document/find', params, (results) => {
-                $('#container').html(results[0].content);
+                if(results.length) {
+                    $('#container').html(results[0].content);
+                };
             });
         });
         

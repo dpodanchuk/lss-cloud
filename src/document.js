@@ -10,7 +10,7 @@ module.exports = function(options){
         // FIXME use of deprecated mongoose mpromise library
         // plug in your own promise library instead http://mongoosejs.com/docs/promises.html
         const searchCriteria = msg.req$ && msg.req$.query?msg.req$.query.q:msg;
-        console.log(searchCriteria);
+        console.log('SQ:', searchCriteria, msg.req$.query);
         DocumentModel
             .find(searchCriteria)
             .then(result => {
