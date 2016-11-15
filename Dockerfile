@@ -13,13 +13,13 @@ COPY *.json /app/
 #RUN cd /app \    
 #    && npm install
 # COPY copyables /
-COPY *.js /app
+ADD node_modules /app/node_modules
 ADD sslcert /app/sslcert
 #COPY conf/*.js /app/conf/
-COPY src /app/src
 COPY model /app/model
 COPY public /app/public
-ADD node_modules /app/node_modules
+COPY src /app/src
+COPY *.js /app
 
 EXPOSE ${NODE_PORT}
 
