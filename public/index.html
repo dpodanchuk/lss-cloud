@@ -4,16 +4,13 @@
     <title>LSS Editor Prototype v0.0.1</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
       <meta name="generator" content="content" />
-      <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" type="text/css" media="screen" />
+      <link rel="stylesheet" href="/css/vendor/bootstrap.min.css" type="text/css" media="screen" />
       <link rel="stylesheet" href="css/lss.css" type="text/css" media="screen" />
       
       <!-- Load Rangy -->
-      <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/lodash.js/4.16.6/lodash.min.js"></script>
-      <script
-         src="https://code.jquery.com/jquery-3.1.1.min.js"
-         integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
-         crossorigin="anonymous"></script>
-      <script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+      <script type="text/javascript" src="js/vendor/lodash.min.js"></script>
+      <script type="text/javascript" src="js/vendor/jquery.min.js"></script>
+      <script type="text/javascript" src="js/vendor/bootstrap.min.js"></script>
       <script type="text/javascript" src="js/vendor/log4javascript.js"></script>
       <script type="text/javascript" src="js/vendor/jshashtable.js"></script>
       <script type="text/javascript" src="js/vendor/rangy/core/core.js"></script>
@@ -28,9 +25,6 @@
       <script type="text/javascript" src="js/vendor/rangy/modules/rangy-classapplier.js"></script>
       <script type="text/javascript" src="js/vendor/rangy/modules/rangy-highlighter.js"></script>
       
-      <!-- <script type="text/javascript" src="js/vendor/rangy/modules/inactive/rangy-commands.js"></script> -->
-      <!-- <script type="text/javascript" src="js/vendor/rangy/modules/inactive/rangy-events.js"></script> -->
-      <!-- <script type="text/javascript" src="js/vendor/rangy/modules/inactive/rangy-position.js"></script> -->
       <script type="text/javascript" src="js/vendor/rangy/modules/inactive/rangy-textcommands.js"></script>
       <script type="text/javascript" src="js/vendor/ramjet.js"></script>
       
@@ -45,6 +39,7 @@
       <div class="container-fluid">
         <div class="row">
           <div class="col-xs-8">
+            <select id="document-list"></select>
             <div id="container">
               <ol>
                 <li>
