@@ -9,13 +9,12 @@
                 $('#container').html(results[0].content);
             });
         });
-        console.log('Reading');
+        
         $.get('/api/document/find', (result) => {
             _.each(result, (it, idx) => {
                 const o = $('<option/>');
                 o.attr('value', it._id);
                 o.text(it.title);
-                console.log(o);
                 $('#document-list').append(o);
             });
             $('#document-list').trigger('change');
