@@ -13,7 +13,7 @@ module.exports = function() {
         created_at: Date,
         modified_at: Date,
         content: String,
-        versions: [Object]
+        versions: [String]
     });
 
     // define a method to find the closest person
