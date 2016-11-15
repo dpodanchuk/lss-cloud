@@ -19,12 +19,12 @@
                 console.log(o);
                 $('#document-list').append(o);
             });
+            $('#document-list').trigger('change');
         });
     });
     
     window.onload = function() {
         rangy.init();
-
 
         // Enable buttons
         var controls = {
