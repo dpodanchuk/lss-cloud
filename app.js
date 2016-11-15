@@ -17,7 +17,7 @@ var fs = require('fs')
 , [mongo_protocol, mongo_host, mongo_port] = (process.env.MONGODB_PORT || "tcp://localhost:27017").split(/\:\/\/|\:/)
 , [redis_protocol, redis_host, redis_port] = (process.env.REDIS_PORT || 'tcp://127.0.0.1:6379').split(/\:\/\/|\:/)
 , mongoose = require('mongoose')
-, options = {}
+, options = {mongo: {}}
 , DocumentModel = options.DocumentModel = require('./model/document.js')();
 
 const PORT = parseInt(process.env.NODE_PORT) || 3001;
@@ -27,6 +27,8 @@ options.mongo = _.extend(options.mongo, {
     port :mongo_port,
     db: 'lss'
 }); //FIXME use destructuring assignments
+
+console.log(options.mongo);
 
 var Promise = require('bluebird')
 , seneca = Promise.promisifyAll(require('seneca')())
@@ -65,9 +67,17 @@ var app = express()
                 .then((result) => {
                     console.log(req.file);
                     const now = new Date();
+                    // FIXME finish node-jsdom implementation
+                    /*
+                    const jsdom = require('node-jsdom')
+                    , wnd = jsdom(result.content, {
+                        jQueryify: true
+                    });
+                     */
+                    
                     DocumentModel
                         .create({
-                            title: req.file.originalname,
+                            title: /* wnd.title || wnd.$('h1:eq(0)', wnd).text() || */ req.file.originalname,
                             created_at: now,
                             modified_at: now,
                             content:  result.content
