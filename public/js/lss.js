@@ -4,13 +4,20 @@
  */
 (function() {
     $(() => {
+        $('#document-list').on('change', (e) => {
+            const params = {q:{_id:$(e.target).val()}};
+            $.get('/api/document/find', params, (results) => {
+                $('#container').html(results[0].content);
+            });
+        });
         console.log('Reading');
         $.get('/api/document/find', (result) => {
-            _.each(result, (it) => {
-                const o = $('option');
-                o.attr('id', it._id);
+            _.each(result, (it, idx) => {
+                const o = $('<option/>');
+                o.attr('value', it._id);
                 o.text(it.title);
-                $('#document-list').append(o);                
+                console.log(o);
+                $('#document-list').append(o);
             });
         });
     });
