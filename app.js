@@ -60,39 +60,40 @@ var app = express()
  	.use(require('body-parser').json())
         .use(express.static(path.join(__dirname, 'public')))
  	.use(seneca.export('web'))
-        .post('/upload', multer.single('document'), (req, resp, next)  => {
-            if(!req.file) return next();
-            seneca
-                .actAsync('role:fileUpload,cmd:getContent', {file: req.file})
-                .then((result) => {
-                    console.log(req.file);
-                    const now = new Date();
-                    // FIXME finish node-jsdom implementation
-                    /*
-                    const jsdom = require('node-jsdom')
-                    , wnd = jsdom(result.content, {
-                        jQueryify: true
+        .post('/upload', multer.array('document'), (req, resp, next)  => {
+            if(!req.file && !req.files) return next();
+            _.each(req.files, (file) => {
+                seneca
+                    .actAsync('role:fileUpload,cmd:getContent', {file: file})
+                    .then((result) => {
+                        console.log(file);
+                        const now = new Date();
+                        // FIXME finish node-jsdom implementation
+                        /*
+                         const jsdom = require('node-jsdom')
+                         , wnd = jsdom(result.content, {
+                         jQueryify: true
+                         });
+                         */
+                        
+                        DocumentModel
+                            .create({
+                                title: /* wnd.title || wnd.$('h1:eq(0)', wnd).text() || */ file.originalname,
+                                created_at: now,
+                                modified_at: now,
+                                content:  result.content
+                            }, (err, obj) => {
+                                if(!err){
+                                    console.log(`Document created at: ${obj.created_at}`);
+                                }
+                            });
+                    })
+                    .catch((err) => {
+                        resp.status(500).json(err);
                     });
-                     */
-                    
-                    DocumentModel
-                        .create({
-                            title: /* wnd.title || wnd.$('h1:eq(0)', wnd).text() || */ req.file.originalname,
-                            created_at: now,
-                            modified_at: now,
-                            content:  result.content
-                        }, (err, obj) => {
-                            if(!err){
-                                console.log(`Document created at: ${obj.created_at}`);
-                            }
-                        });
-
-                    resp.status(200).json(result.status);
-                })
-                .catch((err) => {
-                    resp.status(500).json(err);
-                });
-            
+                
+            });
+            resp.status(200).json('OK');
             return null;
         });
 
