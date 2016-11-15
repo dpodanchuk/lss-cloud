@@ -1,6 +1,5 @@
 /**
  @author Arsen A. Gutsal
- Inspired by: http://codepen.io/agutsal/pen/QGjeVa
  */
 (function() {
     $(() => {
