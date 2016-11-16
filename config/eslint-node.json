@@ -1,0 +1,4 @@
+{
+    "parser":"esprima",
+    "es6": true
+}

@@ -1,0 +1,23 @@
+lb:
+  image: 'dockercloud/haproxy:1.5.3'
+  links:
+    - web
+  ports:
+    - '80:80'
+  privileged: true
+  tags:
+    - LSS
+  target_num_containers: 2
+mongo:
+  image: 'mongo:latest'
+  tags:
+    - LSS
+web:
+  image: 'softsky/lss-cloud:latest'
+  links:
+    - 'mongo:MONGODB'
+  privileged: true
+  restart: on-failure
+  tags:
+    - LSS
+  target_num_containers: 2

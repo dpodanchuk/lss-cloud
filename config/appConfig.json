@@ -1,0 +1,19 @@
+{
+    "directories": {
+        "appDir": "/app",
+        "dataDir": "/data",
+        "publicDir": "/public",
+        "privateDir": "/private"
+    },
+    "app": {
+        "name": "Bootstrap 3 rendered by Jade, Node, Express and Grunt",
+        "rootPage": "app.js",
+        "dev": "dist",
+        "devPort": 9000,
+        "dist": "_gen_dist",
+        "distPort": 9000,
+        "livereloadPort": 35729,
+        "src": "app",
+        "srcPort": 9000
+    }
+}
