@@ -19,6 +19,8 @@ module.exports = function(options){
     });
 
     seneca.ready((respond) => {
+        // TODO implement fileupload processing with senecajs
+        // use this sample: https://github.com/rjrodger/seneca-examples/blob/master/plugin-web/page-plugin/index.js
 	console.log('init:api called, file-upload');
     	this.act('role:web',{use:{
     	    prefix: '/api/file-upload',
