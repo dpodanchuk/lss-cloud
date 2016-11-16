@@ -19,7 +19,7 @@ ADD sslcert /app/sslcert
 COPY model /app/model
 COPY public /app/public
 COPY src /app/src
-COPY *.js /app
+COPY *.js /app/
 
 EXPOSE ${NODE_PORT}
 
