@@ -129,10 +129,10 @@
 
                     var parts = document.querySelectorAll(".atom span[class^=mark]")
                     , tree = $('.tree');
-                    tree.innerHTML = '';
+                    tree.html('');
                     _.each(parts, (it, idx) => {
                         const cn = $(it).clone();
-                        cn.addClass(' invisible');
+                        cn.addClass('invisible');
                         cn.data('range', parts);
                         tree.append(cn);
 
